@@ -29,7 +29,7 @@
                               <thead>
                                   <tr>
                                       <th>No</th>
-                                      <th>Nama Jenis Pembayaran</th>
+                                      <th>Jenis Pembayaran</th>
                                       <th>Action</th>
                                   </tr>
                               </thead>
@@ -37,10 +37,10 @@
                                   <?php foreach ($jenis_pembayaran as $index => $item) : ?>
                                       <tr>
                                           <td><?= $index + 1 ?></td>
-                                          <td><?= $item->nama_jenis_pembayaran ?></td>
+                                          <td><?= $item->jenis ?></td>
                                           <td>
                                               <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau Di Hapus') ? window.location.href = '<?= site_url('admin/jenispembayaran/delete/' . $item->id) ?>' : ''"><i class="fas fa-trash"></i></button>
-                                              <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editJenis Pembayaran<?= $item->id ?>"><i class="fas fa-edit"></i></button>
+                                              <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editJenis<?= $item->id ?>"><i class="fas fa-edit"></i></button>
                                           </td>
                                       </tr>
                                   <?php endforeach ?>
@@ -65,7 +65,7 @@
                       <form action="<?= base_url('Admin/jenispembayaran/add') ?>" method="post">
                           <div class="form-group">
                               <label>Nama Jenis Pembayaran</label>
-                              <input type="text" class="form-control" name="nama_jenis_pembayaran">
+                              <input type="text" class="form-control" name="jenis">
                           </div>
                           <div class="form-group float-right">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,7 +78,7 @@
       </div>
 
       <?php foreach ($jenis_pembayaran as $index => $item) : ?>
-          <div class="modal fade" id="editJenis Pembayaran<?= $item->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="editJenis<?= $item->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                   <div class="modal-content">
                       <div class="modal-header">
@@ -92,7 +92,7 @@
                               <input type="hidden" name="id" value="<?= $item->id ?>">
                               <div class="form-group">
                                   <label>Nama Jenis Pembayaran</label>
-                                  <input type="text" class="form-control" name="nama_jenis_pembayaran" value="<?= $item->nama_jenis_pembayaran ?>">
+                                  <input type="text" class="form-control" name="jenis" value="<?= $item->jenis ?>">
                               </div>
                               <div class="form-group float-right">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

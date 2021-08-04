@@ -28,6 +28,7 @@
           <li><a class="nav-link" href="<?= site_url('admin/siswa') ?>">Data Siswa</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/kelas') ?>">Data Kelas</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/jurusan') ?>">Data Jurusan</a></li>
+          <li><a class="nav-link" href="<?= site_url('admin/jenispembayaran') ?>">Data Jenis Pembayaran</a></li>
         </ul>
       </li>
       <li class="<?php if ($this->uri->segment('2') == 'Data_Rumah') : ?> active <?php endif ?>">

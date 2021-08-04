@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_jenis_pembarayan extends CI_Model
+class M_jenis_pembayaran extends CI_Model
 {
 
     private $table = 'tb_jenis_pembayaran';
