@@ -25,7 +25,6 @@
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Master</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="<?= site_url('admin/user') ?>">Data User</a></li>
-          <li><a class="nav-link" href="<?= site_url('admin/siswa') ?>">Data Siswa</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/kelas') ?>">Data Kelas</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/jurusan') ?>">Data Jurusan</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/jenispembayaran') ?>">Data Jenis Pembayaran</a></li>
@@ -37,16 +36,7 @@
       <li class="<?php if ($this->uri->segment('2') == 'Data_Sales') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('Admin/Data_Sales/')  ?>"><i class="fas fa-users"></i> <span>Data Pembayaran</span></a>
       </li>
-      <li class="<?php if ($this->uri->segment('2') == 'Data_Customer') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('Admin/Data_Customer/')  ?>"><i class="fas fa-user"></i> <span>Jenis Pembayaran</span></a>
-      </li>
-      <li class="">
-        <a class="nav-link" href="#"><i class="fas fa-file"></i> <span>Laporan</span></a>
-      </li>
       <li class="menu-header">PPDB</li>
-      <li class="<?php if ($this->uri->segment('2') == 'KonfirmasiUser') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('Admin/KonfirmasiUser')  ?>"><i class="fas fa-user"></i> <span>Konfirmasi Users</span></a>
-      </li>
       <li class="<?php if ($this->uri->segment('2') == 'KonfirmasiPendaftaran') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('Admin/KonfirmasiPendaftaran')  ?>"><i class="fas fa-user"></i> <span>Konfirmasi Pendaftaran</span></a>
       </li>

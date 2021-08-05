@@ -9,6 +9,7 @@ class Jurusan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_jurusan', 'jurusan');
+        not_auth_check();
     }
 
     // List all your items

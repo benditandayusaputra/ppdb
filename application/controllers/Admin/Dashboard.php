@@ -1,11 +1,14 @@
-<?php  
-
-
-
+<?php
 class Dashboard extends CI_Controller
 {
-	
-	public function index(){
+	public function __construct()
+	{
+		parent::__construct();
+		not_auth_check();
+	}
+
+	public function index()
+	{
 		$data['title'] = 'Dashboard';
 		$this->load->view('template_admin/header', $data);
 		$this->load->view('template_admin/sidebar');
@@ -14,6 +17,3 @@ class Dashboard extends CI_Controller
 		$this->load->view('template_admin/footer');
 	}
 }
-
-
-?>

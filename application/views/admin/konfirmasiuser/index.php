@@ -128,7 +128,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="<?= base_url('Admin/KonfirmasiUser/confirm') ?>" method="post">
+                <form action="<?= site_url('Admin/KonfirmasiUser/confirm') ?>" method="post">
                   <div class="form-group">
                     <label>Status</label>
                     <input type="hidden" name="id" value="<?= $us->id ?>">

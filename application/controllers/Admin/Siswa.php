@@ -9,6 +9,7 @@ class Siswa extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_user');
+        not_auth_check();
     }
 
     // List all your items

@@ -9,6 +9,7 @@ class Jenispembayaran extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_jenis_pembayaran', 'jenis_pembayaran');
+        not_auth_check();
     }
 
     // List all your items

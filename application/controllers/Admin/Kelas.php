@@ -9,6 +9,7 @@ class Kelas extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_kelas', 'kelas');
+        not_auth_check();
     }
 
     // List all your items
