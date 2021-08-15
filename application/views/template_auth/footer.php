@@ -16,5 +16,9 @@
 
   <!-- Page Specific JS File -->
   <script src="../assets/js/page/auth-register.js"></script>
-</body>
-</html>
+  <script>
+    $('#modalKode').modal('show')
+  </script>
+  </body>
+
+  </html>

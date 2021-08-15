@@ -18,36 +18,32 @@
                 </ul>
               </li> -->
       <li class="<?php if ($this->uri->segment('2') == 'Dashboard') : ?> active <?php endif ?>">
-        <a href="<?= base_url('Admin/Dashboard/') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+        <a href="<?= base_url('admin/dashboard/') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
       </li>
       <li class="menu-header">Starter</li>
       <li class="nav-item dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Master</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="<?= site_url('admin/user') ?>">Data User</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/kelas') ?>">Data Kelas</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/jurusan') ?>">Data Jurusan</a></li>
           <li><a class="nav-link" href="<?= site_url('admin/jenispembayaran') ?>">Data Jenis Pembayaran</a></li>
         </ul>
       </li>
-      <li class="<?php if ($this->uri->segment('2') == 'Data_Rumah') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('Admin/Data_Rumah/')  ?>"><i class="fas fa-home"></i> <span>Transakasi</span></a>
+      <li>
+        <a class="nav-link" href="<?= base_url('admin/user')  ?>"><i class="fas fa-users"></i> <span>User & Calon Siswa</span></a>
       </li>
-      <li class="<?php if ($this->uri->segment('2') == 'Data_Sales') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('Admin/Data_Sales/')  ?>"><i class="fas fa-users"></i> <span>Data Pembayaran</span></a>
+      <li class="<?php if ($this->uri->segment('2') == 'pembayaran') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/pembayaran/')  ?>"><i class="fas fa-users"></i> <span>Data Pembayaran</span></a>
       </li>
       <li class="menu-header">PPDB</li>
-      <li class="<?php if ($this->uri->segment('2') == 'KonfirmasiPendaftaran') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('Admin/KonfirmasiPendaftaran')  ?>"><i class="fas fa-user"></i> <span>Konfirmasi Pendaftaran</span></a>
-      </li>
-      <li class="">
-        <a class="nav-link" href="#"><i class="fas fa-file"></i> <span>Laporan</span></a>
+      <li class="<?php if ($this->uri->segment('2') == 'konfirmasiPendaftaran') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/konfirmasiPendaftaran')  ?>"><i class="fas fa-user"></i> <span>Konfirmasi Pendaftaran</span></a>
       </li>
       <!-- <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Laporan</span></a></li> -->
     </ul>
 
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-      <a href="<?= base_url('Auth/logout') ?>" class="btn btn-primary btn-lg btn-block btn-icon-split">
+      <a href="<?= base_url('auth/logout') ?>" class="btn btn-primary btn-lg btn-block btn-icon-split">
         <i class="fas fa-sign-out-alt"></i> Logout
       </a>
     </div>

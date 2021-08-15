@@ -49,7 +49,7 @@
                 </div>
               </form>
               <div class="text-center ">
-                <h5 class=""><a href="<?= base_url('Auth/registrasi') ?>" class="text-success">Dafatar Siswa Baru</a></h5>
+                <h5 class=""><a href="<?= base_url('auth/registrasi') ?>" class="text-success">Dafatar Siswa Baru</a></h5>
               </div>
               <div class="row sm-gutters">
 
@@ -65,3 +65,17 @@
     </div>
   </section>
 </div>
+
+<?php if ($this->session->flashdata('kode_siswa')) : ?>
+  <div id="modalKode" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h5 class="mb-3">Pendaftaran anda berhasil silahkan tunggu untuk activasi oleh admin</h5>
+          <h4 class="text-danger"><?= $this->session->flashdata('kode_siswa') ?></h4>
+          <p>Silahkan Catat atau Screenshoot kode diatas (kode diatas di gunakan untuk melakukan setiap pembayaran)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php endif ?>

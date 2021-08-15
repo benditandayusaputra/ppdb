@@ -18,29 +18,29 @@
                   <div class="alert alert-success"><?= $this->session->flashdata('success') ?></div>
                 <?php endif ?>
                 <hr>
-                <table class="table" id="myTable">
+                <table class="table text-center" id="myTable">
                   <thead>
                     <tr>
                       <th>No</th>
                       <th>Nama</th>
-                      <th>Email</th>
-                      <th>Konfirmasi</th>
-                      <th>Action</th>
+                      <th>Jenis Pembayaran</th>
+                      <th>Foto</th>
+                      <th>Konfirm</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($c_siswa as $no => $cs) : ?>
+                    <?php foreach ($pembayaran as $no => $item) : ?>
                       <tr>
                         <td><?= $no + 1 ?></td>
-                        <td><?= $cs->nama ?></td>
-                        <td><?= $cs->email ?></td>
+                        <td><?= $item->nama ?></td>
+                        <td><?= $item->jenis ?></td>
+                        <td class="foto-bukti text-center" style="cursor: pointer;"><img src="<?= base_url('assets/img/bukti_pendaftaran/' . $item->foto_bukti) ?>" alt="Foto Bukti" width="30%"></td>
                         <td>
-                          <small style="cursor: pointer;" class="badge badge-warning" onclick="return confirm('Yakin Konfirmasi User') ? window.location.href = '<?= site_url('admin/konfirmasipendaftaran/active_user/' . $cs->id) ?>' : ''">Confirm</small>
-                        </td>
-
-                        <td>
-                          <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-                          <a href="<?= site_url('admin/konfirmasipendaftaran/detail/' . $cs->id) ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                          <?php if ($item->konfirm == 0) : ?>
+                            <small style="cursor: pointer;" class="badge badge-warning" onclick="return confirm('Yakin Konfirmasi Pembayaran') ? window.location.href = '<?= site_url('admin/pembayaran/konfirm/' . $item->id) ?>' : ''">Confirm</small>
+                          <?php else : ?>
+                            <strong class="badge badge-success">Sudah Di Konfirmasi</strong>
+                          <?php endif ?>
                         </td>
                       </tr>
                     <?php endforeach ?>
