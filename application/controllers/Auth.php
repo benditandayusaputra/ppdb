@@ -122,34 +122,58 @@ class Auth extends CI_Controller
 		}
 	}
 
+	public function reset()
+	{
+		if (isset($_SESSION['email_reset'])) {
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|matches[konfirm_password]');
+			$this->form_validation->set_rules('konfirm_password', 'Konfirmasi Password', 'trim|required|min_length[6]|matches[password]');
+
+			if ($this->form_validation->run()) {
+				$email = $this->session->userdata('email');
+				$dataUp = ['password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)];
+				$this->m_user->updateByEmail($email, $dataUp);
+				$this->session->unset_userdata('email_reset');
+				$this->session->set_flashdata('success', 'Reset Password Berhasil');
+				redirect(site_url('auth'), 'refresh');
+			} else {
+				$data['title'] = 'Reset Password';
+				$this->load->view('template_auth/header', $data);
+				$this->load->view('auth/reset');
+				$this->load->view('template_auth/footer');
+			}
+		} else {
+			redirect(site_url('auth'), 'refresh');
+		}
+	}
+
+	public function show_reset()
+	{
+		$data['title'] = 'Reset Password';
+		$this->load->view('template_auth/header', $data);
+		$this->load->view('auth/show_reset');
+		$this->load->view('template_auth/footer');
+	}
+
+	public function checkReset()
+	{
+		$email = $this->input->post('email');
+		$user = $this->m_user->byEmail($email);
+		if ($user) {
+			$array = array(
+				'email_reset' => $email
+			);
+			$this->session->set_userdata($array);
+			redirect(site_url('auth/reset'), 'refresh');
+		} else {
+			$this->session->set_flashdata('error', 'Email tidak tersedia');
+			redirect(site_url('auth/show_reset'), 'refresh');
+		}
+	}
+
 	public function logout()
 	{
 		$this->session->unset_userdata('email');
 		$this->session->unset_userdata('role_id');
 		redirect('auth');
-	}
-
-	public function ok()
-	{
-		$gambar = $_FILES['bayar']['name'];
-		if ($gambar) {
-			$config['allowed_types'] = 'jpg|png|jpeg';
-			$config['max_size'] = '2048';
-			$config['upload_path'] = './assets/img/bukti_pendaftaran/';
-
-			$this->load->library('upload', $config);
-
-			if (!$this->upload->do_upload('bayar')) {
-				$this->session->set_flashdata('bukti', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-					  <strong>Upload Bukti Pembayaran Gagal</strong>
-					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					    <span aria-hidden="true">&times;</span>
-					  </button>
-					</div>');
-				redirect('auth/registrasi');
-			} else {
-				$bukti = $this->upload->data('file_name');
-			}
-		}
 	}
 }

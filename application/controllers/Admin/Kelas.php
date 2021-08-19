@@ -26,7 +26,7 @@ class Kelas extends CI_Controller
     // Add a new item
     public function add()
     {
-        $this->form_validation->set_rules('nama_kelas', 'Nama Kelas', 'trim|required|is_unique[tb_kelas.nama_kelas]', [
+        $this->form_validation->set_rules('nama_kelas', 'Nama Kelas', 'trim|required', [
             'required'  => 'Nama Kelas Harus Diisi',
             'is_unique' => 'Nama Kelas Sudah Ada'
         ]);
@@ -44,7 +44,7 @@ class Kelas extends CI_Controller
     //Update one item
     public function update()
     {
-        $this->form_validation->set_rules('nama_kelas', 'Nama Kelas', 'trim|required|is_unique[tb_kelas.nama_kelas]', [
+        $this->form_validation->set_rules('nama_kelas', 'Nama Kelas', 'trim|required', [
             'required'  => 'Nama Kelas Harus Diisi',
             'is_unique' => 'Nama Kelas Sudah Ada'
         ]);

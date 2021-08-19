@@ -42,6 +42,16 @@
                     </div>
                   </div>
                   <div class="form-group row">
+                    <label for="jurusan_id" class="col-sm-2 col-form-label">Prodi</label>
+                    <div class="col-sm-10">
+                      <select name="jurusan_id" id="jurusan_id" class="form-control">
+                        <?php foreach ($jurusan as $item) : ?>
+                          <option value="<?= $item->id ?>" <?php echo ($item->id == $user->jurusan_id ? 'selected' : '') ?>><?= $item->nama_jurusan ?></option>
+                        <?php endforeach ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-10">
                       <div class="form-check">

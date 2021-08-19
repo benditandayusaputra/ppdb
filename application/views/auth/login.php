@@ -30,7 +30,7 @@
               <form method="POST" action="" class="needs-validation">
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input id="email" type="email" class="form-control" name="email" tabindex="1" autofocus autocomplete="off">
+                  <input id="email" type="email" class="form-control" name="email" tabindex="1" autofocus autocomplete="off" placeholder="Masukan Email Anda">
                   <?= form_error('email', '<small class="text-danger">', '</small>') ?>
                 </div>
 
@@ -49,7 +49,8 @@
                 </div>
               </form>
               <div class="text-center ">
-                <h5 class=""><a href="<?= base_url('auth/registrasi') ?>" class="text-success">Dafatar Siswa Baru</a></h5>
+                <h5 class=""><a href="<?= base_url('auth/registrasi') ?>" class="text-success">Daftar Siswa Baru</a></h5>
+                <h5 class=""><a href="<?= base_url('auth/show_reset') ?>" class="text-success">Reset Password</a></h5>
               </div>
               <div class="row sm-gutters">
 

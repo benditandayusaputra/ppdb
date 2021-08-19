@@ -22,9 +22,11 @@ class Pengumuman extends CI_Controller
 
 			if (!$this->upload->do_upload('bukti_pembayaran')) {
 				$error = $this->upload->display_errors();
+				$check = $this->checkKelengkapanBiodata();
 				$data = [
 					'title'	=> 'Pengumuman',
 					'bayar'	=> $this->m_pendaftaran->check_bayar(),
+					'check'	=> $check,
 					'view' 	=> 'pendaftaran/pengumuman',
 					'error'	=> $error
 				];
@@ -34,7 +36,8 @@ class Pengumuman extends CI_Controller
 				$dataUp = [
 					'user_id'				=> $user->id,
 					'jenis_pembayaran_id'	=> 1,
-					'foto_bukti'			=> $this->upload->data('file_name')
+					'foto_bukti'			=> $this->upload->data('file_name'),
+					'jumlah'				=> $this->input->post('jumlah')
 				];
 				$dataU = [
 					'bukti_pembayaran'		=> $this->upload->data('file_name')
@@ -45,11 +48,23 @@ class Pengumuman extends CI_Controller
 				redirect(site_url('pendaftaran/pengumuman'), 'refresh');
 			}
 		}
+		$check = $this->checkKelengkapanBiodata();
 		$data = [
 			'title'	=> 'Pengumuman',
 			'bayar'	=> $this->m_pendaftaran->check_bayar(),
+			'check' => $check,
 			'view' 	=> 'pendaftaran/pengumuman'
 		];
 		$this->load->view('pendaftaran/template/app', $data);
+	}
+
+	private function checkKelengkapanBiodata()
+	{
+		$user = $this->m_user->checkBiodata();
+		if (in_array(null, $user) || in_array("", $user)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

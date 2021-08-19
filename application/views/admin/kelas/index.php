@@ -5,7 +5,6 @@
                   <h1><?= $title ?></h1>
                   <div class="section-header-breadcrumb">
                       <div class="breadcrumb-item active"><a href="<?= base_url('Admin/Dashboard') ?>">Dashboard</a></div>
-                      <!-- <div class="breadcrumb-item"><a href="#">Bootstrap Components</a></div> -->
                       <div class="breadcrumb-item"><?= $title ?></div>
                   </div>
               </div>
@@ -29,6 +28,7 @@
                               <thead>
                                   <tr>
                                       <th>No</th>
+                                      <th>Grade</th>
                                       <th>Nama Kelas</th>
                                       <th>Action</th>
                                   </tr>
@@ -37,6 +37,7 @@
                                   <?php foreach ($kelas as $index => $item) : ?>
                                       <tr>
                                           <td><?= $index + 1 ?></td>
+                                          <td><?= $item->grade ?></td>
                                           <td><?= $item->nama_kelas ?></td>
                                           <td>
                                               <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau Di Hapus') ? window.location.href = '<?= site_url('admin/kelas/delete/' . $item->id) ?>' : ''"><i class="fas fa-trash"></i></button>
@@ -62,7 +63,15 @@
                       </button>
                   </div>
                   <div class="modal-body">
-                      <form action="<?= base_url('Admin/kelas/add') ?>" method="post">
+                      <form action="<?= site_url('admin/kelas/add') ?>" method="post">
+                          <div class="form-group">
+                              <label for="grade">Pilih Grade</label>
+                              <select id="grade" class="form-control" name="grade">
+                                  <option value="X">X</option>
+                                  <option value="XI">XI</option>
+                                  <option value="XII">XII</option>
+                              </select>
+                          </div>
                           <div class="form-group">
                               <label>Nama Kelas</label>
                               <input type="text" class="form-control" name="nama_kelas">
@@ -88,8 +97,16 @@
                           </button>
                       </div>
                       <div class="modal-body">
-                          <form action="<?= base_url('Admin/kelas/update') ?>" method="post">
+                          <form action="<?= site_url('admin/kelas/update') ?>" method="post">
                               <input type="hidden" name="id" value="<?= $item->id ?>">
+                              <div class="form-group">
+                                  <label for="grade">Pilih Grade</label>
+                                  <select id="grade" class="form-control" name="grade">
+                                      <option value="X" <?php echo ($item->grade == 'X' ? 'selected' : '') ?>>X</option>
+                                      <option value="XI" <?php echo ($item->grade == 'XI' ? 'selected' : '') ?>>XI</option>
+                                      <option value="XII" <?php echo ($item->grade == 'XII' ? 'selected' : '') ?>>XII</option>
+                                  </select>
+                              </div>
                               <div class="form-group">
                                   <label>Nama Kelas</label>
                                   <input type="text" class="form-control" name="nama_kelas" value="<?= $item->nama_kelas ?>">

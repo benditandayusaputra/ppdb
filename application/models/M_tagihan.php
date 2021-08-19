@@ -2,19 +2,16 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_kelas extends CI_Model
+class M_tagihan extends CI_Model
 {
 
-    private $table = 'tb_kelas';
+    private $table = 'tb_tagihan';
 
     public function index()
     {
+        $this->db->select('tb_tagihan.*, tb_jenis_pembayaran.jenis');
+        $this->db->join('tb_jenis_pembayaran', 'tb_jenis_pembayaran.id = tb_tagihan.jenis_pembayaran_id', 'left');
         return $this->db->get($this->table)->result();
-    }
-
-    public function getKelasX()
-    {
-        return $this->db->get_where($this->table, ['grade' => 'X'])->result();
     }
 
     public function insert($data)
@@ -38,4 +35,4 @@ class M_kelas extends CI_Model
     }
 }
 
-/* End of file M_kelas.php */
+/* End of file M_tagihan.php */

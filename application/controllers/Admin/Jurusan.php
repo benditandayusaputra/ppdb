@@ -44,7 +44,7 @@ class Jurusan extends CI_Controller
     //Update one item
     public function update()
     {
-        $this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required|is_unique[tb_jurusan.nama_jurusan]', [
+        $this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required', [
             'required'  => 'Nama Jurusan Harus Diisi',
             'is_unique' => 'Nama Jurusan Sudah Ada'
         ]);

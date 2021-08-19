@@ -23,6 +23,11 @@ class M_pembayaran extends CI_Model
         return $this->db->get_where($this->table, ['tb_user.email' => $this->session->userdata('email')])->result();
     }
 
+    public function detail($id)
+    {
+        return $this->db->get_where($this->table, ['id' => $id])->row();
+    }
+
     public function insert($data)
     {
         $this->db->insert($this->table, $data);

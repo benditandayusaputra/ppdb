@@ -7,11 +7,13 @@ class Biodata extends CI_Controller
 		parent::__construct();
 		not_auth_check();
 		$this->load->model('m_orang_tua', 'orang_tua');
+		$this->load->model('m_jurusan', 'jurusan');
 	}
 
 	public function index()
 	{
 		$data['user'] = $this->m_user->byEmailDaftar();
+		$data['jurusan'] = $this->jurusan->index();
 		$data['title'] = 'Biodata Siswa';
 		$data['view'] = 'pendaftaran/biodata/index';
 		$this->load->view('pendaftaran/template/app', $data);

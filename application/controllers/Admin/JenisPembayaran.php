@@ -26,7 +26,7 @@ class Jenispembayaran extends CI_Controller
     // Add a new item
     public function add()
     {
-        $this->form_validation->set_rules('jenis', 'Jenis Pembayaran', 'trim|required|is_unique[tb_jenis_pembayaran.jenis]', [
+        $this->form_validation->set_rules('jenis', 'Jenis Pembayaran', 'trim|required', [
             'required'  => 'Jenis Pembayaran Harus Diisi',
             'is_unique' => 'Jenis Pembayaran Sudah Ada'
         ]);
