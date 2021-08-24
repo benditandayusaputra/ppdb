@@ -21,23 +21,7 @@
                         <span aria-hidden="true">&times;</span></button>
                     </div>
                   <?php endif ?>
-                  <?php if (empty($bayar->bukti_pembayaran)) : ?>
-                    <div class="alert alert-success" role="alert">
-                      <h4 class="alert-heading">Upload Bukti Pembayaran Pendaftaran</h4>
-                      <hr>
-                      <form method="post" action="<?= site_url('pendaftaran/pengumuman/index') ?>" enctype="multipart/form-data">
-                        <div class="form-group">
-                          <label for="jumlah" class="text-light">Jumlah Bayar</label>
-                          <input id="jumlah" class="form-control" type="number" name="jumlah" required>
-                        </div>
-                        <div class="form-group">
-                          <label for="bukti_pembayaran" class="text-light">Foto Bukti Pembayaran Pendaftaran</label>
-                          <input id="bukti_pembayaran" class="form-control" type="file" name="bukti_pembayaran">
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3 ml-auto">Submit</button>
-                      </form>
-                    </div>
-                  <?php elseif (empty($bayar->status_bukti_bayar)) : ?>
+                  <?php if ($user->status == 0) : ?>
                     <div class="alert alert-success" role="alert">
                       <h4 class="alert-heading">Tunggu Konfirmasi Admin</h4>
                       <p>Silahkan Tunggu Konfirmasi Dari Admin</p>

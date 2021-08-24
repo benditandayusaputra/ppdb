@@ -10,17 +10,10 @@
     </div>
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
-      <!-- <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-                <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                  <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
-                </ul>
-              </li> -->
       <li class="<?php if ($this->uri->segment('2') == 'Dashboard') : ?> active <?php endif ?>">
         <a href="<?= base_url('admin/dashboard/') ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
       </li>
-      <li class="menu-header">Starter</li>
+      <li class="menu-header">Menu</li>
       <li class="nav-item dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Master</span></a>
         <ul class="dropdown-menu">
@@ -30,10 +23,13 @@
         </ul>
       </li>
       <li>
-        <a class="nav-link" href="<?= base_url('admin/user')  ?>"><i class="fas fa-users"></i> <span>User & Calon Siswa</span></a>
+        <a class="nav-link" href="<?= base_url('admin/user')  ?>"><i class="fas fa-users"></i> <span>User</span></a>
+      </li>
+      <li class="<?php if ($this->uri->segment('2') == 'tagihan') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/tagihan/')  ?>"><i class="fas fa-dollar-sign"></i> <span>Data Tagihan</span></a>
       </li>
       <li class="<?php if ($this->uri->segment('2') == 'pembayaran') : ?> active <?php endif ?>">
-        <a class="nav-link" href="<?= base_url('admin/pembayaran/')  ?>"><i class="fas fa-users"></i> <span>Data Pembayaran</span></a>
+        <a class="nav-link" href="<?= base_url('admin/pembayaran/')  ?>"><i class="fas fa-dollar-sign"></i> <span>Data Pembayaran</span></a>
       </li>
       <li class="menu-header">PPDB</li>
       <li class="<?php if ($this->uri->segment('2') == 'konfirmasiPendaftaran') : ?> active <?php endif ?>">

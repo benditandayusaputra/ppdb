@@ -30,7 +30,7 @@ function redirect_role($role_id)
             redirect(site_url('pendaftaran/dashboard'));
             break;
         case 3:
-            redirect(site_url('dashboard'));
+            redirect(site_url('siswa/dashboard'));
             break;
         default:
             $name_role = 'Sepala Sekolah';

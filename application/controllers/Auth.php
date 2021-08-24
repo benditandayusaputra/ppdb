@@ -37,11 +37,7 @@ class Auth extends CI_Controller
 						];
 						$this->session->set_userdata($data);
 
-						if ($user['role_id'] == 1) {
-							redirect(site_url('admin/dashboard'));
-						} else {
-							redirect(site_url('pendaftaran/dashboard'));
-						}
+						redirect_role($user['role_id']);
 					} else {
 						$this->session->set_flashdata('error', 'Akun Belum Di ACtivasi Oleh Admin Silahkan Hubungi Admin');
 						redirect(site_url('auth'));

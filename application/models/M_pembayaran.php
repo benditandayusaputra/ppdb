@@ -42,6 +42,11 @@ class M_pembayaran extends CI_Model
     {
         $this->db->delete($this->table, ['id' => $id]);
     }
+
+    public function checkBayar($user_id, $tagihan_id)
+    {
+        return $this->db->get_where($this->table, ['user_id' => $user_id, 'tagihan_id' => $tagihan_id])->row();
+    }
 }
 
 /* End of file M_pembayaran.php */

@@ -17,7 +17,6 @@ class Pembayaran extends CI_Controller
     {
         $data = [
             'title'         => 'Konfirmasi Pembayaran',
-            'kelas'         => $this->kelas->getKelasX(),
             'pembayaran'    => $this->pembayaran->index(),
             'view'          => 'admin/pembayaran/index'
         ];

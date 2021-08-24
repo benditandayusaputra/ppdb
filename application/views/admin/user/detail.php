@@ -18,7 +18,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th width="15%">Nama</th>
+                                <th width="20%">Nama</th>
                                 <th>: <?php echo $user->nama ?></th>
                             </tr>
                         </thead>
@@ -26,6 +26,18 @@
                             <tr>
                                 <td>NISN</td>
                                 <td>: <?php echo $user->nisn ? $user->nisn : '-' ?></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Di Terima</td>
+                                <td>: <?php echo $user->tanggal_diterima ? $user->tanggal_diterima : '-' ?></td>
+                            </tr>
+                            <tr>
+                                <td>Tahun Masuk</td>
+                                <td>: <?php echo $user->tahun_masuk ? $user->tahun_masuk : '-' ?></td>
+                            </tr>
+                            <tr>
+                                <td>Tahun Keluar</td>
+                                <td>: <?php echo $user->tahun_keluar ? $user->tahun_keluar : '-' ?></td>
                             </tr>
                             <tr>
                                 <td>Jenis Kelamin</td>
