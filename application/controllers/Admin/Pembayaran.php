@@ -25,9 +25,9 @@ class Pembayaran extends CI_Controller
 
     public function konfirm($id)
     {
+        $bayar = $this->pembayaran->detail($id);
+        $user = $this->m_user->byId($bayar->user_id);
         if ($this->pembayaran->detail($id)->jenis_pembayaran_id == 1) {
-            $bayar = $this->pembayaran->detail($id);
-            $user = $this->m_user->byId($bayar->user_id);
             $this->m_user->update($bayar->user_id, ['kelas_id' => $this->input->post('kelas_id'), 'role_id' => 3]);
             $data = [
                 'tanggal_diterima' => date('Y-m-d'),
