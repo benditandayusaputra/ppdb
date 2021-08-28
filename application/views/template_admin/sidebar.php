@@ -1,7 +1,8 @@
+<?php $userLogin = $this->m_user->byEmail($this->session->userdata('email')); ?>
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="#">Admin</a>
+      <a href="#"><?= role_user($userLogin->role_id) ?></a>
       <!-- <a href="#">Super Admin</a> -->
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
@@ -22,8 +23,11 @@
           <li><a class="nav-link" href="<?= site_url('admin/jenispembayaran') ?>">Data Jenis Pembayaran</a></li>
         </ul>
       </li>
-      <li>
+      <li class="<?php if ($this->uri->segment('2') == 'user') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('admin/user')  ?>"><i class="fas fa-users"></i> <span>User</span></a>
+      </li>
+      <li class="<?php if ($this->uri->segment('2') == 'siswa') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/siswa')  ?>"><i class="fas fa-user-tie"></i> <span>Siswa</span></a>
       </li>
       <li class="<?php if ($this->uri->segment('2') == 'tagihan') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('admin/tagihan/')  ?>"><i class="fas fa-dollar-sign"></i> <span>Data Tagihan</span></a>
@@ -31,9 +35,11 @@
       <li class="<?php if ($this->uri->segment('2') == 'pembayaran') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('admin/pembayaran/')  ?>"><i class="fas fa-dollar-sign"></i> <span>Data Pembayaran</span></a>
       </li>
-      <li class="menu-header">PPDB</li>
       <li class="<?php if ($this->uri->segment('2') == 'konfirmasiPendaftaran') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('admin/konfirmasiPendaftaran')  ?>"><i class="fas fa-user"></i> <span>Konfirmasi Pendaftaran</span></a>
+      </li>
+      <li class="<?php if ($this->uri->segment('2') == 'config') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/config')  ?>"><i class="fas fa-cog"></i> <span>Konfigurasi Aplikasi</span></a>
       </li>
       <!-- <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Laporan</span></a></li> -->
     </ul>

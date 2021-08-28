@@ -1,3 +1,4 @@
+<?php $userLogin = $this->m_user->byEmail($this->session->userdata('email')); ?>
 <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
@@ -69,17 +70,15 @@
           </div>
         </form>
         <ul class="navbar-nav navbar-right">
-          
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="<?= base_url('assets') ?>/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, </div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
-              <a href="features-profile.html" class="dropdown-item has-icon">
+              <a href="<?= site_url('profile/index/'.$userLogin->id.'?type='.md5('admin')) ?>" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
               <div class="dropdown-divider"></div>
-              <a href="<?= base_url('Admin/Dashboard/logout') ?>" class="dropdown-item has-icon text-danger">
+              <a href="<?= site_url('auth/logout') ?>" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>

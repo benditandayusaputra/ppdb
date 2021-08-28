@@ -11,7 +11,7 @@
         <div class="section-body">
             <div class="card">
                 <div class="card-body">
-                    <a href="<?= site_url('admin/user') ?>" class="btn btn-primary mb-3">
+                    <a href="<?= site_url('admin/' . $_GET['redirect']) ?>" class="btn btn-primary mb-3">
                         <i class="fa fa-arrow-left"></i> Kembali
                     </a>
                     <h5><strong>Data Siswa</strong></h5>

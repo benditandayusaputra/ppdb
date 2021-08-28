@@ -49,7 +49,9 @@
                 </div>
               </form>
               <div class="text-center ">
-                <h5 class=""><a href="<?= base_url('auth/registrasi') ?>" class="text-success">Daftar Siswa Baru</a></h5>
+				<?php if ($checkPendaftaran == true) : ?>
+					<h5 class=""><a href="<?= base_url('auth/registrasi') ?>" class="text-success">Daftar Siswa Baru</a></h5>
+				<?php endif ?>
                 <h5 class=""><a href="<?= base_url('auth/show_reset') ?>" class="text-success">Reset Password</a></h5>
               </div>
               <div class="row sm-gutters">

@@ -1,7 +1,8 @@
+<?php $userLogin = $this->m_user->byEmail($this->session->userdata('email')); ?>
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="#">Calon Siswa</a>
+      <a href="#"><?= role_user($userLogin->role_id) ?></a>
       <!-- <a href="#">Super Admin</a> -->
     </div>
     <div class="sidebar-brand sidebar-brand-sm">

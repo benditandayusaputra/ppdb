@@ -6,12 +6,14 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_jurusan', 'jurusan');
+		date_default_timezone_set('Asia/Jakarta');
 	}
 
 	public function index()
 	{
 		auth_check();
 		$data['title'] = 'Login';
+		$data['checkPendaftaran'] = $this->checkPendaftaran();
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
 			'required'	=> '%s Harus Diisi!',
 			'valid_email' => 'Yang Anda Masukan Bukan Email!'
@@ -22,7 +24,7 @@ class Auth extends CI_Controller
 		]);
 		if ($this->form_validation->run() == false) {
 			$this->load->view('template_auth/header', $data);
-			$this->load->view('auth/login');
+			$this->load->view('auth/login', $data);
 			$this->load->view('template_auth/footer');
 		} else {
 			$email = $this->input->post('email');
@@ -57,6 +59,10 @@ class Auth extends CI_Controller
 	public function registrasi()
 	{
 		auth_check();
+		$checkPendaftaran = $this->checkPendaftaran();
+		if ( $checkPendaftaran == false ) {
+			redirect(site_url('auth'));
+		}
 		$this->form_validation->set_message([
 			'required'		=> '%s Harus Diisi',
 			'is_unique' 	=> '%s Sudah Ada',
@@ -64,6 +70,7 @@ class Auth extends CI_Controller
 			'valid_email'	=> 'Yang Anda Masukan Bukan email'
 		]);
 		$this->form_validation->set_rules('tempat', 'Tempat', 'required|trim');
+		$this->form_validation->set_rules('nama', 'Nama', 'required|trim');
 		$this->form_validation->set_rules('tgl', 'Tanggal Lahir', 'required');
 		$this->form_validation->set_rules('agama', 'Agama', 'required|trim');
 		$this->form_validation->set_rules('no_hp', 'No Telepon', 'required|trim|max_length[13]');
@@ -171,5 +178,22 @@ class Auth extends CI_Controller
 		$this->session->unset_userdata('email');
 		$this->session->unset_userdata('role_id');
 		redirect('auth');
+	}
+	
+	public function checkPendaftaran() {
+		$config = $this->m_config->index();
+		if ( !empty($config->buka_pendaftaran) && !empty($config->tutup_pendaftaran) ) {
+			if ( strtotime(strval($config->buka_pendaftaran)) < time() ) {
+				if ( strtotime(strval($config->tutup_pendaftaran)) > time() ) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 }

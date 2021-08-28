@@ -23,7 +23,6 @@
                                   <?= $this->session->flashdata('error') ?>
                               </div>
                           <?php endif ?>
-                          <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTambah"><i class="fas fa-plus"></i> Tambah Data</a>
                           <hr>
                           <table class="table table-striped" id="myTable">
                               <thead>
@@ -31,8 +30,7 @@
                                       <th>No</th>
                                       <th>Nama</th>
                                       <th>Email</th>
-                                      <th>Role</th>
-                                      <th>Status</th>
+                                      <th>Tanggal Di Terima</th>
                                       <th>Action</th>
                                   </tr>
                               </thead>
@@ -42,20 +40,11 @@
                                           <td><?= $index + 1 ?></td>
                                           <td><?= $item->nama ?></td>
                                           <td><?= $item->email ?></td>
-                                          <td><?= role_user($item->role_id) ?></td>
-                                          <td>
-                                              <?php if ($item->status == 0) : ?>
-                                                  <small class="badge badge-warning">No</small>
-                                              <?php else : ?>
-                                                  <small class="badge badge-success">Active</small>
-                                              <?php endif ?>
-                                          </td>
+                                          <td><?= $item->tanggal_diterima ?></td>
                                           <td>
                                               <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Mau Di Hapus') ? window.location.href = '<?= site_url('admin/user/delete/' . $item->id) ?>' : ''"><i class="fas fa-trash"></i></button>
                                               <a href="<?= site_url('admin/user/edit/' . $item->id) ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                              <?php if ($item->role_id == 2 || $item->role_id == 3) : ?>
-                                                  <a href="<?= site_url('admin/user/detail/' . $item->id . '?redirect=user') ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
-                                              <?php endif ?>
+                                              <a href="<?= site_url('admin/user/detail/' . $item->id . '?redirect=siswa') ?>" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                                           </td>
                                       </tr>
                                   <?php endforeach ?>
@@ -90,7 +79,7 @@
                               <label>Password</label>
                               <input type="text" class="form-control" name="password">
                           </div>
-                          <!-- <div class="form-group">
+                          <div class="form-group">
                               <select class="form-control" name="kelas_id">
                                   <option value="">-- Plihan Kelas --</option>
                                   <?php foreach ($kelas as $item) : ?>
@@ -107,14 +96,6 @@
                                   <?php endforeach ?>
                               </select>
                               <small>Jika Ada</small>
-                          </div> -->
-                          <div class="form-group">
-                              <select class="form-control" name="role_id">
-                                  <option value="">-- Plihan Type User --</option>
-                                  <!-- <option value="2">Siswa</option> -->
-                                  <option value="1">Admin</option>
-                                  <option value="3">Kepala Sekolah</option>
-                              </select>
                           </div>
                           <div class="form-group">
                               <select class="form-control" name="status">

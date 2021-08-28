@@ -8,7 +8,9 @@ class Siswa extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('M_user');
+        $this->load->model('M_user', 'user');
+        $this->load->model('M_kelas', 'kelas');
+        $this->load->model('M_jurusan', 'jurusan');
         not_auth_check();
     }
 
@@ -16,9 +18,13 @@ class Siswa extends CI_Controller
     public function index()
     {
         $data = [
-            'siswa' => $this->M_user->siswa(),
-            'view'  => 'siswa/index'
+            'title'     => 'User',
+            'user'      => $this->user->siswa(),
+            'kelas'     => $this->kelas->index(),
+            'jurusan'   => $this->jurusan->index(),
+            'view'      => 'admin/siswa/index'
         ];
+        $this->load->view('template_admin/app.php', $data);
     }
 
     // Add a new item

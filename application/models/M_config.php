@@ -22,9 +22,9 @@ class M_config extends CI_Model
         return $this->db->get_where($this->table, ['id' => $id])->row();
     }
 
-    public function update($id, $data)
+    public function update($data)
     {
-        $this->db->update($this->table, $data, ['id' => $id]);
+        $this->db->update($this->table, $data, ['id' => 1]);
     }
 
     public function delete($id)
