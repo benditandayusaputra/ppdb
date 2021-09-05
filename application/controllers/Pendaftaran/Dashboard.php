@@ -6,6 +6,7 @@ class Dashboard extends CI_Controller
 	{
 		parent::__construct();
 		not_auth_check();
+		check_page_calon_siswa($_SESSION['role_id']);
 	}
 
 	public function index()

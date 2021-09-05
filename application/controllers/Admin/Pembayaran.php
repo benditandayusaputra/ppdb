@@ -8,6 +8,7 @@ class Pembayaran extends CI_Controller
     {
         parent::__construct();
         not_auth_check();
+        check_page_admin($_SESSION['role_id']);
         $this->load->model('m_pembayaran', 'pembayaran');
         $this->load->model('m_siswa', 'siswa');
         $this->load->model('m_kelas', 'kelas');

@@ -7,9 +7,10 @@ class Tagihan extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        not_auth_check();
+        check_page_admin($_SESSION['role_id']);
         $this->load->model('M_tagihan', 'tagihan');
         $this->load->model('M_jenis_pembayaran', 'jenis_pembayaran');
-        not_auth_check();
     }
 
     // List all your items

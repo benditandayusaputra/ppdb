@@ -4,7 +4,7 @@
               <div class="section-header">
                   <h1><?= $title ?></h1>
                   <div class="section-header-breadcrumb">
-                      <div class="breadcrumb-item active"><a href="<?= base_url('siswa/dashboard') ?>">Dashboard</a></div>
+                      <div class="breadcrumb-item active"><a href="<?= base_url('Admin/Dashboard') ?>">Dashboard</a></div>
                       <!-- <div class="breadcrumb-item"><a href="#">Bootstrap Components</a></div> -->
                       <div class="breadcrumb-item"><?= $title ?></div>
                   </div>
@@ -12,7 +12,7 @@
 
               <div class="section-body">
                   <div class="row">
-                      Selamat Datang Siswa
+                      Selamat Datang Kepala Sekolah
                   </div>
               </div>
           </section>

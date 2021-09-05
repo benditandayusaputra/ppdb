@@ -60,7 +60,7 @@ class Auth extends CI_Controller
 	{
 		auth_check();
 		$checkPendaftaran = $this->checkPendaftaran();
-		if ( $checkPendaftaran == false ) {
+		if ($checkPendaftaran == false) {
 			redirect(site_url('auth'));
 		}
 		$this->form_validation->set_message([
@@ -179,12 +179,13 @@ class Auth extends CI_Controller
 		$this->session->unset_userdata('role_id');
 		redirect('auth');
 	}
-	
-	public function checkPendaftaran() {
+
+	public function checkPendaftaran()
+	{
 		$config = $this->m_config->index();
-		if ( !empty($config->buka_pendaftaran) && !empty($config->tutup_pendaftaran) ) {
-			if ( strtotime(strval($config->buka_pendaftaran)) < time() ) {
-				if ( strtotime(strval($config->tutup_pendaftaran)) > time() ) {
+		if (!empty($config->buka_pendaftaran) && !empty($config->tutup_pendaftaran)) {
+			if (strtotime(strval($config->buka_pendaftaran)) < time()) {
+				if (strtotime(strval($config->tutup_pendaftaran)) > time()) {
 					return true;
 				} else {
 					return false;

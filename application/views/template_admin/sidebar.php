@@ -41,7 +41,12 @@
       <li class="<?php if ($this->uri->segment('2') == 'config') : ?> active <?php endif ?>">
         <a class="nav-link" href="<?= base_url('admin/config')  ?>"><i class="fas fa-cog"></i> <span>Konfigurasi Aplikasi</span></a>
       </li>
-      <!-- <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Laporan</span></a></li> -->
+      <li class="<?php if ($this->uri->segment('2') == 'laporanpendaftaran') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/laporanpendaftaran')  ?>"><i class="fas fa-users"></i> <span>Laporan Pendaftaran</span></a>
+      </li>
+      <li class="<?php if ($this->uri->segment('2') == 'laporanpembayaran') : ?> active <?php endif ?>">
+        <a class="nav-link" href="<?= base_url('admin/laporanpembayaran')  ?>"><i class="fas fa-dollar-sign"></i> <span>Laporan Pembayaran</span></a>
+      </li>
     </ul>
 
     <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

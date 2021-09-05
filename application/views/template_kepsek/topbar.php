@@ -75,7 +75,7 @@
         <div class="d-sm-none d-lg-inline-block">Hi, <?= $userLogin->nama ?></div>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a href="<?= site_url('profile/index/' . $userLogin->id . '?type=' . md5('calon_siswa')) ?>" class="dropdown-item has-icon">
+        <a href="<?= site_url('profile/index/' . $userLogin->id . '?type=' . md5('kepsek')) ?>" class="dropdown-item has-icon">
           <i class="far fa-user"></i> Profile
         </a>
         <div class="dropdown-divider"></div>

@@ -19,6 +19,14 @@ class M_pendaftaran extends CI_Model
 		return $this->db->get_where($table, $where)->row_array();
 	}
 
+	public function laporan($tahun = null)
+	{
+		if ($tahun) {
+			$this->db->where("EXTRACT(YEAR FROM created) = " . $tahun);
+		}
+		return $this->db->get($this->table)->result();
+	}
+
 	public function update($where, $data)
 	{
 		$this->db->where($where);

@@ -7,6 +7,7 @@ class KonfirmasiPendaftaran extends CI_Controller
 	{
 		parent::__construct();
 		not_auth_check();
+		check_page_admin($_SESSION['role_id']);
 		$this->load->model('m_kelas', 'kelas');
 		$this->load->model('m_siswa', 'siswa');
 	}

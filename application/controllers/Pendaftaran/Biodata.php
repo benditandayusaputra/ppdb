@@ -6,6 +6,7 @@ class Biodata extends CI_Controller
 	{
 		parent::__construct();
 		not_auth_check();
+		check_page_calon_siswa($_SESSION['role_id']);
 		$this->load->model('m_orang_tua', 'orang_tua');
 		$this->load->model('m_jurusan', 'jurusan');
 	}
