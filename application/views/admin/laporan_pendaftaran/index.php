@@ -73,7 +73,7 @@
                                     </td>
                                     <td><?= $item->created ?></td>
                                     <td>
-                                        <a href="<?= site_url('kepsek/laporanpendaftaran/detail' . $item->id) ?>" class="btn btn-info">Detail</a>
+                                        <a href="<?= site_url('kepsek/laporanpendaftaran/detail/' . $item->id) ?>" class="btn btn-info">Detail</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

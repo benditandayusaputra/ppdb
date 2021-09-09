@@ -32,7 +32,7 @@ class User extends CI_Controller
     public function detail($id)
     {
         $data = [
-            'title' => 'Detail User',
+            'title' => 'Detail ' . $_GET['redirect'],
             'user'  => $this->user->detail($id),
             'view'  => 'admin/user/detail'
         ];

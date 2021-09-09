@@ -34,7 +34,12 @@ class LaporanPendaftaran extends CI_Controller
 
     public function detail($id)
     {
-        //
+        $data = [
+            'title' => 'Detail Pendaftaran',
+            'user'  => $this->m_user->detail($id),
+            'view'  => 'admin/laporan_pendaftaran/detail'
+        ];
+        $this->load->view('template_admin/app', $data);
     }
 
     public function cetakPdf($tahun = null)

@@ -50,6 +50,11 @@ class M_pendaftaran extends CI_Model
 		return $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row();
 	}
 
+	public function deleteByUser($id)
+	{
+		$this->db->delete($this->table, ['user_id' => $id]);
+	}
+
 	// public function join_pendaftaran(){
 	// 	$this->db->select('*');
 	// 	$this->db->from('tb_user');

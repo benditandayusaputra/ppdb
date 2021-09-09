@@ -53,6 +53,10 @@
       $('#fotoBukti').attr('src', srcImg)
       $('#modalFoto').modal('show')
     })
+
+    $('#tahun').change(function(e) {
+      $('#formFilterTahun').submit()
+    })
   });
 </script>
 </body>
