@@ -11,6 +11,11 @@ class M_user extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    public function selectUser($id)
+    {
+        return $this->db->get_where($this->table, ['id' => $id])->row();
+    }
+
     public function getSiswaUser()
     {
         $this->db->select('tb_user.*, tb_siswa.tahun_keluar');

@@ -215,8 +215,9 @@ class Siswa extends CI_Controller
     //Delete one item
     public function delete($id)
     {
+        $user = $this->m_user->selectUser($id);
         $this->m_user->delete($id);
-        $this->m_pendaftaran->deleteByUser($id);
+        $this->m_pendaftaran->delete($user->pendaftaran_id);
         $this->siswa->deleteByUser($id);
         $this->orang_tua->deleteByUser($id);
         $this->session->set_flashdata('success', 'Data Berhasil Di Hapus');
