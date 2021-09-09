@@ -237,18 +237,18 @@ class Siswa extends CI_Controller
             if (!$this->upload->do_upload('upload_ijazah')) {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             } else {
                 $data = [
                     'upload_ijazah' => $this->upload->data('file_name')
                 ];
                 $this->m_pendaftaran->update(['id' => $this->input->post('id')], $data);
                 $this->session->set_flashdata('success', 'Upload Ijazah Berhasil');
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             }
         }
         $this->session->set_flashdata('error', 'Upload Ijazah Harus Di Isi');
-        redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+        redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
     }
 
     public function uploadSkhun()
@@ -264,18 +264,18 @@ class Siswa extends CI_Controller
             if (!$this->upload->do_upload('upload_skhun')) {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             } else {
                 $data = [
                     'upload_skhun' => $this->upload->data('file_name')
                 ];
                 $this->m_pendaftaran->update(['id' => $this->input->post('id')], $data);
                 $this->session->set_flashdata('success', 'Upload SKHUN Berhasil');
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             }
         }
         $this->session->set_flashdata('error', 'Upload SKHUN Harus Di Isi');
-        redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+        redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
     }
 
     public function uploadKK()
@@ -291,18 +291,18 @@ class Siswa extends CI_Controller
             if (!$this->upload->do_upload('upload_kk')) {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             } else {
                 $data = [
                     'upload_kk' => $this->upload->data('file_name')
                 ];
                 $this->m_pendaftaran->update(['id' => $this->input->post('id')], $data);
                 $this->session->set_flashdata('success', 'Upload Kartu Keluarga Berhasil');
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             }
         }
         $this->session->set_flashdata('error', 'Upload Kartu Keluarga Harus Di Isi');
-        redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+        redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
     }
 
     public function uploadAkte()
@@ -318,18 +318,18 @@ class Siswa extends CI_Controller
             if (!$this->upload->do_upload('upload_akte')) {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             } else {
                 $data = [
                     'upload_akte' => $this->upload->data('file_name')
                 ];
                 $this->m_pendaftaran->update(['id' => $this->input->post('id')], $data);
                 $this->session->set_flashdata('success', 'Upload Akte Berhasil');
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             }
         }
         $this->session->set_flashdata('error', 'Upload Akte Kelahiran Harus Di Isi');
-        redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+        redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
     }
 
     public function uploadKTP()
@@ -345,18 +345,18 @@ class Siswa extends CI_Controller
             if (!$this->upload->do_upload('upload_ktp_ortu')) {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             } else {
                 $data = [
                     'upload_ktp_ortu' => $this->upload->data('file_name')
                 ];
                 $this->m_pendaftaran->update(['id' => $this->input->post('id')], $data);
                 $this->session->set_flashdata('success', 'Upload KTP Berhasil');
-                redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+                redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
             }
         }
         $this->session->set_flashdata('error', 'Upload KTP Orang Tua Harus Di Isi');
-        redirect(site_url('admin/siswa/uploadBerkas'), 'refresh');
+        redirect(site_url('admin/siswa/uploadBerkas/'.$this->input->post('user_id')), 'refresh');
     }
 
     public function naikanKelas()
