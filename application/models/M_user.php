@@ -91,6 +91,15 @@ class M_user extends CI_Model
         return $this->db->get_where($this->table, ['email' => $this->session->userdata('email')])->row();
     }
 
+    public function byEmailDaftarSiswa($email)
+    {
+        $this->db->select('tb_user.id as user_id, tb_user.jurusan_id, tb_user.email, tb_pendaftaran.*, tb_orang_tua.nama_ortu, tb_orang_tua.pendidikan, tb_orang_tua.pekerjaan, tb_jurusan.nama_jurusan');
+        $this->db->join('tb_pendaftaran', 'tb_pendaftaran.id = tb_user.pendaftaran_id', 'left');
+        $this->db->join('tb_jurusan', 'tb_jurusan.id = tb_user.jurusan_id', 'left');
+        $this->db->join('tb_orang_tua', 'tb_orang_tua.id = tb_user.orang_tua_id', 'left');
+        return $this->db->get_where($this->table, ['email' => $email])->row();
+    }
+
     public function bySiswaId($id)
     {
         $this->db->select('tb_user.id as user_id, tb_user.jurusan_id, tb_user.email, tb_pendaftaran.*, tb_orang_tua.nama_ortu, tb_orang_tua.pendidikan, tb_orang_tua.pekerjaan, tb_jurusan.nama_jurusan');
@@ -107,6 +116,15 @@ class M_user extends CI_Model
         $this->db->join('tb_jurusan', 'tb_jurusan.id = tb_user.jurusan_id', 'left');
         $this->db->join('tb_orang_tua', 'tb_orang_tua.id = tb_user.orang_tua_id', 'left');
         return $this->db->get_where($this->table, ['email' => $this->session->userdata('email')])->row_array();
+    }
+
+    public function checkBiodataEmail($email)
+    {
+        $this->db->select('tb_user.id, tb_user.email, tb_pendaftaran.nisn, tb_pendaftaran.nama, tb_pendaftaran.jenis_kelamin, tb_pendaftaran.tempat_lahir, tb_pendaftaran.tanggal_lahir, tb_pendaftaran.agama, tb_pendaftaran.alamat, tb_pendaftaran.no_telpon, tb_pendaftaran.upload_ijazah, tb_pendaftaran.upload_skhun, tb_pendaftaran.upload_kk, tb_pendaftaran.upload_akte, tb_pendaftaran.upload_ktp_ortu, tb_orang_tua.nama_ortu, tb_orang_tua.pendidikan, tb_orang_tua.pekerjaan, tb_jurusan.nama_jurusan');
+        $this->db->join('tb_pendaftaran', 'tb_pendaftaran.id = tb_user.pendaftaran_id', 'left');
+        $this->db->join('tb_jurusan', 'tb_jurusan.id = tb_user.jurusan_id', 'left');
+        $this->db->join('tb_orang_tua', 'tb_orang_tua.id = tb_user.orang_tua_id', 'left');
+        return $this->db->get_where($this->table, ['email' => $email])->row_array();
     }
 
     public function detail($id)

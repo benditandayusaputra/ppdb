@@ -11,8 +11,8 @@
           </div>
 
           <div class="section-body">
-            <div class="row">
-              Selamat Datang Kepala Sekolah
+            <div class="row h2">
+              Selamat Datang Calon Siswa
             </div>
           </div>
         </section>
